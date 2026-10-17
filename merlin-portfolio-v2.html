@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Merlin Sharon A – Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#fff4f9;--surface:#fff;--ink:#3b1f4a;--muted:#7a5a85;--line:#f0cfe3;--accent:#d6288b;--allow:#0e9f83;--key:#7a4fe0;
+  --sans:"Bricolage Grotesque",system-ui,-apple-system,"Segoe UI",sans-serif;--mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d1028;--surface:#2a1a3a;--ink:#fbeaf5;--muted:#cbaedb;--line:#4a3160;--accent:#ff7ac6;--allow:#6fe3c1;--key:#b9a0ff}}
+:root[data-theme="dark"]{--bg:#1d1028;--surface:#2a1a3a;--ink:#fbeaf5;--muted:#cbaedb;--line:#4a3160;--accent:#ff7ac6;--allow:#6fe3c1;--key:#b9a0ff}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.65 var(--sans)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--bg)}
+a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 1.25rem}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--bg);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:.5rem 1rem;flex-wrap:wrap;padding-top:.8rem;padding-bottom:.8rem}
+.brand{font-weight:800;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+nav a{display:inline-block;margin-left:.3rem;padding:.3rem .8rem;border-radius:999px;color:var(--muted);text-decoration:none;font-weight:600}
+nav a:hover{color:var(--ink)}
+nav a[aria-current="page"]{background:var(--accent);color:var(--bg)}
+[data-page]{display:none;padding:2.5rem 0 4rem}
+[data-page].on{display:block}
+h1{font-size:clamp(2.6rem,7vw,5rem);line-height:.98;letter-spacing:-.035em;font-weight:800;margin:0 0 1.25rem;color:var(--accent);background:linear-gradient(90deg,var(--accent),var(--key));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+h1.pg{font-size:clamp(2.2rem,5vw,3.4rem)}
+h1:focus{outline:none}
+h2{font-size:clamp(1.5rem,3.5vw,2rem);letter-spacing:-.025em;line-height:1.15;margin:3rem 0 1.25rem;font-weight:800}
+h2::before{content:"~/";font:500 .75em var(--mono);color:var(--accent);margin-right:.4rem}
+h3{font-size:1.25rem;margin:0 0 .3rem;letter-spacing:-.01em}
+p{margin:0 0 1rem;max-width:40rem}
+.lede{font-size:1.2rem;color:var(--muted);max-width:34rem}
+.hero{display:grid;grid-template-columns:1.1fr .9fr;gap:2.5rem;align-items:center;padding:1.5rem 0 1rem}
+.btn{display:inline-block;padding:.7rem 1.3rem;border-radius:999px;font:600 1rem var(--sans);text-decoration:none;border:2px solid var(--accent);color:var(--accent);background:none;cursor:pointer}
+.btn.primary{background:var(--accent);color:var(--bg)}
+.btns{display:flex;gap:.75rem;flex-wrap:wrap;margin-top:1.25rem}
+.term{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.2rem 1.4rem;font:400 .88rem/1.7 var(--mono);box-shadow:8px 8px 0 var(--accent);min-height:19rem}
+.term .c{color:var(--muted)} .term .k{color:var(--accent)} .term .ok{color:var(--allow);font-weight:500}
+.term .opts{display:flex;flex-direction:column;gap:.5rem;margin:.9rem 0}
+.term .opts button{font:500 .85rem var(--mono);text-align:left;padding:.55rem .8rem;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.term .opts button:hover{border-color:var(--accent);color:var(--accent)}
+#log{min-height:5.2rem;white-space:pre-wrap;margin:0}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:2.5rem 0 0;padding:1.4rem 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.stats b{display:block;font-size:1.6rem;letter-spacing:-.02em;color:var(--accent)}
+.stats span{color:var(--muted);font-size:.92rem}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.card{display:block;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:1.4rem;color:var(--ink);text-decoration:none}
+a.card:hover{border-color:var(--accent);box-shadow:5px 5px 0 var(--accent)}
+.card p{margin:.4rem 0 .9rem;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:.4rem;margin:0}
+.chip{font:400 .76rem var(--mono);padding:.15rem .6rem;border-radius:999px;background:var(--bg);border:1px solid var(--line);color:var(--muted)}
+.more{font-weight:600;color:var(--accent)}
+.cta{margin-top:3.5rem;padding:2rem;border-radius:18px;background:var(--ink);color:var(--bg)}
+.cta h2{margin:0 0 .6rem;color:var(--bg)} .cta h2::before{color:var(--bg)} .cta p{color:var(--bg)}
+.cta .btn{border-color:var(--bg);color:var(--bg)} .cta .btn.primary{background:var(--bg);color:var(--ink)}
+.back{display:inline-block;margin-bottom:1.5rem;font-weight:600}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem}
+ul.plain{margin:0;padding-left:1.2rem} ul.plain li{margin-bottom:.6rem}
+.tl{border-left:2px solid var(--line);margin-left:.4rem;padding-left:1.5rem}
+.job{position:relative;padding-bottom:2rem}
+.job::before{content:"";position:absolute;left:-1.95rem;top:.55rem;width:.75rem;height:.75rem;border-radius:50%;background:var(--accent)}
+.when{font:400 .85rem var(--mono);color:var(--muted)}
+.rows{list-style:none;margin:0;padding:0}
+.rows li{display:flex;justify-content:space-between;gap:1rem;padding:.65rem 0;border-bottom:1px solid var(--line)}
+.rows span{color:var(--muted);text-align:right}
+.sk{display:grid;grid-template-columns:8rem 1fr;gap:.6rem 1rem;align-items:start}
+.sk dt{font-weight:600;padding-top:.15rem} .sk dd{margin:0}
+form.f{display:grid;gap:.8rem;max-width:34rem}
+input,textarea{font:inherit;padding:.7rem .9rem;border-radius:12px;border:1px solid var(--line);background:var(--surface);color:var(--ink);width:100%}
+label{font-weight:600}
+footer{border-top:1px solid var(--line);padding:1.5rem 0 2.5rem;color:var(--muted);font-size:.92rem}
+@media (max-width:760px){
+  .hero,.cols{grid-template-columns:1fr}.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}
+  .sk{grid-template-columns:1fr;gap:.2rem}.sk dd{margin-bottom:.8rem}
+  nav a{margin:0 .2rem 0 0;padding:.25rem .6rem}
+}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="brand" href="#/home">Merlin Sharon A ✦</a>
+  <nav aria-label="Pages">
+    <a href="#/home" data-nav="home">Home</a><a href="#/projects" data-nav="projects">Projects</a><a href="#/experience" data-nav="experience">Experience</a><a href="#/about" data-nav="about">About</a><a href="#/contact" data-nav="contact">Contact</a>
+  </nav>
+</div></header>
+
+<main class="wrap">
+<section data-page="home">
+  <div class="hero">
+    <div>
+      <h1 tabindex="-1">Merlin Sharon A</h1>
+      <p class="lede">Computer science student in Chennai. I build cloud apps on AWS, and the guardrails that decide who is allowed to do what ✨</p>
+      <p>Two internships, five projects, and a habit of asking “should this be allowed?” before shipping anything.</p>
+      <div class="btns"><a class="btn primary" href="#/projects">See my projects</a><a class="btn" href="#/contact">Get in touch</a></div>
+    </div>
+    <div class="term" aria-label="Interactive access request">
+      <div class="c">// access-request.sh ♡</div>
+      <div><span class="k">$</span> request --as recruiter</div>
+      <div class="opts">
+        <button data-go="projects" data-msg="read:projects">view projects</button>
+        <button data-go="experience" data-msg="read:experience">read experience</button>
+        <button data-go="contact" data-msg="write:contact">get in touch</button>
+      </div>
+      <pre id="log" aria-live="polite" class="c">Pick an action. It gets a risk score, just like in AuthForge.</pre>
+    </div>
+  </div>
+  <div class="stats">
+    <div><b>8.2</b><span>CGPA out of 10</span></div>
+    <div><b>2</b><span>internships: AWS and security</span></div>
+    <div><b>5</b><span>projects built</span></div>
+    <div><b>1st</b><span>Robo Rumble 3.0, LICET FabLab</span></div>
+  </div>
+  <h2>Featured projects</h2>
+  <div class="grid" id="featured"></div>
+  <div class="cta">
+    <h2>Building something in cloud or security?</h2>
+    <p>I’m looking for internships and teams to learn from. Tell me what you’re working on.</p>
+    <div class="btns"><a class="btn primary" href="#/contact">Say hello</a><a class="btn" href="#/experience">See my experience</a></div>
+  </div>
+</section>
+
+<section data-page="projects">
+  <h1 class="pg" tabindex="-1">Projects</h1>
+  <p class="lede">Apps that mix AI, AWS and security. Open one to see how it’s built.</p>
+  <div class="grid" id="allproj" style="margin-top:2rem"></div>
+  <p style="margin-top:2rem">More code on <a href="https://github.com/merlinsharon-1809" target="_blank" rel="noopener">GitHub</a>.</p>
+</section>
+
+<section data-page="project"><div id="detail"></div></section>
+
+<section data-page="experience">
+  <h1 class="pg" tabindex="-1">Experience</h1>
+  <p class="lede">Hands-on work in cloud engineering and offensive security.</p>
+  <div class="tl" style="margin-top:2rem">
+    <div class="job">
+      <div class="when">Dec 2025 – Jan 2026</div>
+      <h3>AWS Developer Intern</h3>
+      <div style="color:var(--muted);margin-bottom:.6rem">Navodita Infotech, Chennai</div>
+      <ul class="plain">
+        <li>Built a serverless workflow where an S3 upload triggers a Lambda function that extracts file metadata and logs it to CloudWatch.</li>
+        <li>Built a serverless image-processing workflow on Lambda and S3, using IAM roles to limit what each function can do.</li>
+      </ul>
+      <p class="chips" style="margin-top:.8rem"><span class="chip">Lambda</span><span class="chip">S3</span><span class="chip">IAM</span><span class="chip">CloudWatch</span></p>
+    </div>
+    <div class="job">
+      <div class="when">Oct 2024 – Dec 2024</div>
+      <h3>Cyber Security Analyst Intern</h3>
+      <div style="color:var(--muted);margin-bottom:.6rem">Corizo Edutech Private Limited</div>
+      <ul class="plain">
+        <li>Ran penetration tests with Kali Linux in a VirtualBox lab.</li>
+        <li>Practiced credential-cracking and privilege-escalation on guided training systems such as TryHackMe’s ColdBox.</li>
+      </ul>
+      <p class="chips" style="margin-top:.8rem"><span class="chip">Kali Linux</span><span class="chip">VirtualBox</span><span class="chip">TryHackMe</span></p>
+    </div>
+  </div>
+  <h2>Achievements and certifications</h2>
+  <ul class="plain">
+    <li>1st place, Robo Rumble 3.0, LICET FabLab</li>
+    <li>2nd place, Armageddon, LICET FabLab</li>
+    <li>Qualified Round 1 (online MCQ assessment), Adobe India Hackathon via Unstop</li>
+    <li>Deloitte Australia Cyber Job Simulation, Forage (Dec 2025)</li>
+  </ul>
+</section>
+
+<section data-page="about">
+  <h1 class="pg" tabindex="-1">About</h1>
+  <div class="cols">
+    <div>
+      <p class="lede">I’m a B.E. Computer Science student at LICET in Chennai, graduating in 2028.</p>
+      <p>I like projects where AI, cloud services and security meet: apps that turn plain requests into controlled actions, and tools that catch manipulated images or unsafe prompts. I learn fastest by building, then breaking, then fixing.</p>
+      <p>Outside code, I serve as Secretary of the EICON Club and of the LICET Eco Action Force.</p>
+    </div>
+    <ul class="rows">
+      <li>B.E. Computer Science Engineering <span>LICET, 2028 (expected)</span></li>
+      <li>CGPA <span>8.2 / 10</span></li>
+      <li>Class XII <span>88.6%</span></li>
+      <li>Class X <span>97%</span></li>
+      <li>Honors Diploma in Computer Application <span>2024</span></li>
+    </ul>
+  </div>
+  <h2>Skills</h2>
+  <dl class="sk" id="skills"></dl>
+  <h2>Leadership</h2>
+  <ul class="plain">
+    <li>Secretary, EICON Club, LICET (2026 to present). Public Relations Officer in 2025.</li>
+    <li>Secretary, LICET Eco Action Force (present)</li>
+  </ul>
+</section>
+
+<section data-page="contact">
+  <h1 class="pg" tabindex="-1">Contact</h1>
+  <p class="lede">Internship, project or just a question? Write to me.</p>
+  <div class="cols" style="margin-top:2rem">
+    <form class="f" onsubmit="return false">
+      <label for="nm">Your name</label><input id="nm" autocomplete="name">
+      <label for="ms">Message</label><textarea id="ms" rows="5"></textarea>
+      <a class="btn primary" id="send" href="mailto:merlinsharon.18092006@gmail.com" style="text-align:center">Open in my email app</a>
+    </form>
+    <ul class="rows">
+      <li>Email <span><a href="mailto:merlinsharon.18092006@gmail.com">merlinsharon.18092006@gmail.com</a></span></li>
+      <li>GitHub <span><a href="https://github.com/merlinsharon-1809" target="_blank" rel="noopener">merlinsharon-1809</a></span></li>
+      <li>LinkedIn <span><a href="https://linkedin.com/in/merlin-sharon-248090330" target="_blank" rel="noopener">merlin-sharon-248090330</a></span></li>
+      <li>Based in <span>Chennai</span></li>
+    </ul>
+  </div>
+</section>
+</main>
+<footer><div class="wrap">© Merlin Sharon A ✦ Built with care in Chennai</div></footer>
+
+<script>
+const P={
+ authforge:{n:"AuthForge",t:"AI-powered authorization and access-control platform",d:"Turns natural language requests into executable, permissioned actions, so people spend fewer manual steps getting approved.",f:["Scores the sensitivity of each requested action with automated risk classification before it runs.","Routes actions through an approval workflow with audit logging.","Uses a token vault integration to keep credentials secure."],s:["Next.js","TypeScript","Tailwind CSS","Monaco Editor","Electron","Node.js","Zustand","Firebase","OpenAI API","Git/GitHub"]},
+ poneglyph:{n:"Poneglyph",t:"Deepfake detection for images",d:"Analyzes an uploaded image with a machine learning model and flags manipulated media.",f:["FastAPI backend serves probability-based predictions.","Optimized for lightweight CPU inference.","Deployed with AWS EC2, S3 and IAM, with secrets kept in environment variables."],s:["Next.js","React","Node.js","Python","FastAPI","Pretrained ML models","Amazon Nova 2 Lite","AWS EC2","Amazon S3","IAM","REST APIs"]},
+ creatoros:{n:"CreatorOS",t:"Secure content platform for creators",d:"A content management and collaboration platform for creators.",f:["React frontend with Firebase handling authentication and data.","Cloud services integrated for secure content handling and collaboration."],s:["React","Firebase"]}
+};
+const O=[
+ {n:"StartupForge AI",d:"An AI SaaS app that generates startup ideas using AWS Bedrock.",s:["React","Node.js","DynamoDB","AWS Bedrock"]},
+ {n:"PromptGuardAI",d:"An offline prompt-injection detection tool with rule-based risk scoring.",s:["Security","Rule-based scoring"]}
+];
+const SK={Languages:["Java","C","Python"],Frontend:["HTML5","CSS3","React","Next.js"],Backend:["Node.js","Flask","FastAPI"],Databases:["MySQL","Firebase","DynamoDB"],Cloud:["Lambda","S3","IAM","CloudWatch","Bedrock","DynamoDB","CloudFront","API Gateway"],Tools:["Git","GitHub","VS Code","Jira","Kali Linux"]};
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const chips=a=>`<p class="chips">${a.map(x=>`<span class="chip">${x}</span>`).join("")}</p>`;
+const card=k=>`<a class="card" href="#/projects/${k}"><h3>${P[k].n}</h3><p>${P[k].t}</p>${chips(P[k].s.slice(0,4))}<p class="more" style="margin:.9rem 0 0">Read more</p></a>`;
+$("#featured").innerHTML=Object.keys(P).map(card).join("");
+$("#allproj").innerHTML=Object.keys(P).map(card).join("")+O.map(o=>`<div class="card"><h3>${o.n}</h3><p>${o.d}</p>${chips(o.s)}</div>`).join("");
+$("#skills").innerHTML=Object.entries(SK).map(([k,v])=>`<dt>${k}</dt><dd>${chips(v)}</dd>`).join("");
+function detail(k){const p=P[k];$("#detail").innerHTML=`<a class="back" href="#/projects">Back to projects</a><h1 class="pg" tabindex="-1">${p.n}</h1><p class="lede">${p.t}</p><p>${p.d}</p><h2>What it does</h2><ul class="plain">${p.f.map(x=>`<li>${x}</li>`).join("")}</ul><h2>Tech stack</h2>${chips(p.s)}<p style="margin-top:2rem">Code and other projects: <a href="https://github.com/merlinsharon-1809" target="_blank" rel="noopener">github.com/merlinsharon-1809</a></p>`}
+function route(){
+  const parts=(location.hash.replace(/^#\/?/,"")||"home").split("/");let pg=parts[0];
+  if(pg==="projects"&&P[parts[1]]){detail(parts[1]);pg="project"}
+  if(!$(`[data-page="${pg}"]`))pg="home";
+  $$("[data-page]").forEach(s=>s.classList.toggle("on",s.dataset.page===pg));
+  const nav=pg==="project"?"projects":pg;
+  $$("nav a").forEach(a=>a.toggleAttribute("aria-current",a.dataset.nav===nav)||0);
+  $$("nav a").forEach(a=>a.dataset.nav===nav?a.setAttribute("aria-current","page"):a.removeAttribute("aria-current"));
+  const h=$(`[data-page="${pg}"] h1`);document.title=(h?h.textContent+" – ":"")+"Merlin Sharon A";
+  window.scrollTo(0,0);if(h)h.focus({preventScroll:true});
+}
+window.addEventListener("hashchange",route);route();
+$$("[data-go]").forEach(b=>b.addEventListener("click",()=>{
+  const log=$("#log");log.className="";log.innerHTML=`<span class="k">&gt;</span> action: ${b.dataset.msg}\n<span class="k">&gt;</span> classifying risk… <span class="ok">low</span>\n<span class="k">&gt;</span> <span class="ok">approved ✓</span> opening ${b.dataset.go}`;
+  setTimeout(()=>{location.hash="#/"+b.dataset.go},900);
+}));
+function mail(){const n=$("#nm").value,m=$("#ms").value;$("#send").href="mailto:merlinsharon.18092006@gmail.com?subject="+encodeURIComponent("Hello from "+(n||"your portfolio"))+"&body="+encodeURIComponent(m+(n?"\n\n"+n:""))}
+$("#nm").addEventListener("input",mail);$("#ms").addEventListener("input",mail);
+</script>
+</body>
+</html>
